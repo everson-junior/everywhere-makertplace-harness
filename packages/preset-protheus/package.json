@@ -1,0 +1,44 @@
+{
+  "name": "@everywhere-harness/preset-protheus",
+  "version": "1.0.0",
+  "description": "Protheus mode agent preset for TOTVS Protheus ERP development with AdvPL/TLPP skills, instructions, and agents",
+  "keywords": [
+    "protheus",
+    "totvs",
+    "advpl",
+    "tlpp",
+    "smartx",
+    "preset",
+    "everywhere-harness",
+    "deepseek-harness"
+  ],
+  "author": "Everson Junior",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "locale/*.json",
+    "instructions/**/*",
+    "agents/**/*",
+    "skills/**/*",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/everson-junior/everywhere-makertplace-harness.git",
+    "directory": "packages/preset-protheus"
+  },
+  "homepage": "https://github.com/everson-junior/everywhere-makertplace-harness#readme",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Everywhere Harness Marketplace",
+    "pt": "Marketplace do Everywhere Harness"
+  },
+  "description": {
+    "en": "Community and official plugins, presets, and extensions for Everywhere Harness.",
+    "pt": "Plugins, presets e extensões oficiais e da comunidade para Everywhere Harness."
+  },
+  "metadata": {
+    "categories": {
+      "presets": {
+        "title": {
+          "en": "Presets",
+          "pt": "Presets"
+        }
+      }
+    },
+    "labels": {
+      "protheus": {
+        "title": {
+          "en": "Protheus",
+          "pt": "Protheus"
+        }
+      },
+      "advpl": {
+        "title": {
+          "en": "AdvPL",
+          "pt": "AdvPL"
+        }
+      },
+      "tlpp": {
+        "title": {
+          "en": "TLPP",
+          "pt": "TLPP"
+        }
+      }
+    },
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "@everywhere-harness/preset-protheus",
+      "title": {
+        "en": "Protheus mode",
+        "pt": "Modo Protheus"
+      },
+      "description": {
+        "en": "TOTVS Protheus ERP development in AdvPL/TLPP with specialized skills, guidelines, and SmartX migration.",
+        "pt": "Desenvolvimento TOTVS Protheus ERP em AdvPL/TLPP com skills especializadas, diretrizes e migração SmartX."
+      },
+      "author": "Everson Junior",
+      "homepage": "https://github.com/everson-junior/everywhere-makertplace-harness",
+      "repository": {
+        "url": "https://github.com/everson-junior/everywhere-makertplace-harness",
+        "directory": "packages/preset-protheus"
+      },
+      "metadata": {
+        "category": "presets",
+        "keywords": [
+          "protheus",
+          "advpl",
+          "tlpp",
+          "smartx",
+          "preset",
+          "everywhere-harness"
+        ],
+        "labels": [
+          "protheus",
+          "advpl",
+          "tlpp"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793137045,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {}
+        }
+      ]
+    }
+  ]
+}
