@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Omniroute Provider",
+    "description": "Adds Omniroute as a custom OpenAI-compatible model API at http://localhost:2028/v1."
+  }
+}

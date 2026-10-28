@@ -1,0 +1,79 @@
+# The web profile already owns pi-ai; extend its complete config while
+# preserving existing routes and adding the Omniroute Custom Model API.
+# The secret belongs in the Harness credential store, not in this file.
+- id: llm-pi-ai
+  name: '@deepseek-ai/dsh-llm-pi-ai'
+  config:
+    providers:
+      openai:
+        baseURL: http://localhost:2028/v1
+        apiKeyEnv: OPENAI_API_KEY
+      openrouter:
+        baseURL: http://localhost:2028/v1
+        apiKeyEnv: OPENROUTER_API_KEY
+      custom-providers:
+        displayName: Omniroute
+        api: openai-completions
+        baseURL: http://localhost:2028/v1
+        apiKeyEnv: OMNIROUTE_API_KEY
+        defaultContextWindow: 872000
+        defaultMaxTokens: 128000
+        defaultInput:
+          - text
+          - image
+        models:
+          - id: auto/best-coding
+            name: Auto Best Coding
+            contextWindow: 872000
+            maxTokens: 128000
+            input:
+              - text
+              - image
+          - id: auto/best-reasoning
+            name: Auto Best Reasoning
+            contextWindow: 872000
+            maxTokens: 128000
+            input:
+              - text
+              - image
+          - id: auto/best-fast
+            name: Auto Best Fast
+            contextWindow: 872000
+            maxTokens: 128000
+            input:
+              - text
+              - image
+          - id: auto/best-vision
+            name: Auto Best Vision
+            contextWindow: 872000
+            maxTokens: 128000
+            input:
+              - text
+              - image
+          - id: auto/best-chat
+            name: Auto Best Chat
+            contextWindow: 872000
+            maxTokens: 128000
+            input:
+              - text
+              - image
+          - id: deepseek/deepseek-v4-flash
+            name: DeepSeek V4 Flash
+            contextWindow: 1048576
+            maxTokens: 128000
+            input:
+              - text
+              - image
+          - id: openai/gpt-oss-120b
+            name: GPT OSS 120B
+            contextWindow: 131072
+            maxTokens: 32768
+            input:
+              - text
+          - id: anthropic/claude-sonnet-4-5
+            name: Claude Sonnet 4.5
+            contextWindow: 200000
+            maxTokens: 8192
+            input:
+              - text
+              - image

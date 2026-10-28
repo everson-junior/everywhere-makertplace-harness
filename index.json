@@ -83,6 +83,44 @@
           "engines": {}
         }
       ]
+    },
+    {
+      "name": "@everywhere-harness/plugin-providers",
+      "title": {
+        "en": "Omniroute Provider",
+        "pt": "Provider Omniroute"
+      },
+      "description": {
+        "en": "Adds the Omniroute OpenAI-compatible provider at http://localhost:2028/v1 with editable model discovery.",
+        "pt": "Adiciona o provider Omniroute compatível com OpenAI em http://localhost:2028/v1, com descoberta de modelos."
+      },
+      "author": "Everson Junior",
+      "homepage": "https://github.com/everson-junior/everywhere-makertplace-harness#readme",
+      "repository": {
+        "url": "https://github.com/everson-junior/everywhere-makertplace-harness",
+        "directory": "packages/plugin-providers"
+      },
+      "metadata": {
+        "category": "plugins",
+        "keywords": [
+          "openai-compatible",
+          "local-llm",
+          "provider",
+          "everywhere-harness"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793137045,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {}
+        }
+      ]
     }
   ]
 }

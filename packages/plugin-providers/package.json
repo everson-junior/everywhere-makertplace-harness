@@ -1,0 +1,40 @@
+{
+  "name": "@everywhere-harness/plugin-providers",
+  "version": "1.0.0",
+  "description": "OpenAI-compatible local model provider for Everywhere Harness, configured for a localhost/v1 endpoint.",
+  "keywords": [
+    "openai-compatible",
+    "local-llm",
+    "provider",
+    "everywhere-harness",
+    "deepseek-harness"
+  ],
+  "author": "Everson Junior",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/everson-junior/everywhere-makertplace-harness.git",
+    "directory": "packages/plugin-providers"
+  },
+  "homepage": "https://github.com/everson-junior/everywhere-makertplace-harness#readme",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
