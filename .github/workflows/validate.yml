@@ -1,18 +1,40 @@
-name: Validate Index
+name: Validate Marketplace
 
 on:
   pull_request:
-    branches: [main]
   push:
     branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.21.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24.9.0
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck client UI chat
+        run: pnpm --filter @everywhere-harness/client-ui-chat run typecheck
+      - name: Build client UI chat
+        run: pnpm --filter @everywhere-harness/client-ui-chat run build
+      - name: Test client UI chat
+        run: pnpm --filter @everywhere-harness/client-ui-chat run test
       - name: Validate index.json
-        run: node scripts/validate-index.js
+        run: pnpm run validate:index
+      - name: Pack client UI chat without publishing
+        run: |
+          mkdir -p "$RUNNER_TEMP/client-ui-chat-pack"
+          pnpm --filter @everywhere-harness/client-ui-chat pack --pack-destination "$RUNNER_TEMP/client-ui-chat-pack"
+      - name: Smoke packed client UI chat
+        env:
+          PACK_DIRECTORY: ${{ runner.temp }}/client-ui-chat-pack
+        run: pnpm --filter @everywhere-harness/client-ui-chat run test:pack
