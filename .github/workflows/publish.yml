@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24.9.0
 
       - name: Validate index.json
         run: node scripts/validate-index.js
@@ -46,21 +46,21 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 11.21.0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24.9.0
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Publish @everywhere-harness packages
+      - name: Publish approved preset and provider packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           tag="${{ github.event.inputs.dist_tag || 'latest' }}"
           echo "Publishing packages to npm with tag: $tag"
-          pnpm -r publish --access public --tag "$tag" --no-git-checks
+          pnpm --filter @everywhere-harness/preset-protheus --filter @everywhere-harness/plugin-providers -r publish --access public --tag "$tag" --no-git-checks

@@ -1,0 +1,3 @@
+- insert:
+    - id: everywhere-client-ui-chat
+      name: '@everywhere-harness/client-ui-chat'
