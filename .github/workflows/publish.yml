@@ -13,6 +13,7 @@ on:
     branches:
       - main
     paths:
+      - ".github/workflows/publish.yml"
       - "packages/**"
       - "index.json"
 
