@@ -57,10 +57,22 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Publish approved preset and provider packages
+      - name: Publish approved marketplace packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           tag="${{ github.event.inputs.dist_tag || 'latest' }}"
           echo "Publishing packages to npm with tag: $tag"
-          pnpm --filter @everywhere-harness/preset-protheus --filter @everywhere-harness/plugin-providers -r publish --access public --tag "$tag" --no-git-checks
+          for package in \
+            @everywhere-harness/preset-protheus \
+            @everywhere-harness/plugin-providers \
+            @everywhere-harness/client-ui-chat
+          do
+            version=$(node -p "require('./packages/${package##*/}/package.json').version")
+            if npm view "$package@$version" version >/dev/null 2>&1; then
+              echo "Skipping $package@$version: already published"
+              continue
+            fi
+
+            pnpm --filter "$package" publish --access public --tag "$tag" --no-git-checks
+          done
